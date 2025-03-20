@@ -1,3 +1,5 @@
+
+
 async function fetchUser() {
     const username = document.getElementById('username').value;
     const profileDiv = document.getElementById('profile');
@@ -19,7 +21,7 @@ async function fetchUser() {
         }
 
         const userData = await response.json();
-        console.log(userData)
+        
 
         // Atualizar o DOM com os dados
         avatarImg.src = userData.avatar_url;
@@ -33,3 +35,6 @@ async function fetchUser() {
         avatarImg.classList.add('hidden');
     }
 }
+
+const searchBtn = document.getElementById('searchBtn')
+searchBtn.addEventListener('click', () => {fetchUser()})
