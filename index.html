@@ -1,33 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevFinder</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
-    
-    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h1 class="text-2xl font-bold text-center mb-4">GitHub Profile Viewer</h1>
-        
-        <!-- Formulário de busca -->
-        <div class="flex gap-2 mb-4">
-            <input id="username" type="text" placeholder="Digite o username do GitHub" class="w-full p-2 border rounded">
-            <button id="searchBtn" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Buscar</button>
-        </div>
-
-        <!-- Área de exibição do perfil -->
-        <div id="profile" class="text-center">
-            <img id="avatar" class="w-24 h-24 rounded-full mx-auto mb-4 hidden" alt="Avatar">
-            <h2 id="name" class="text-xl font-semibold"></h2>
-            <p id="bio" class="text-gray-600"></p>
-            <p id="repos" class="mt-2"></p>
-            <p id="followers" class="mt-1"></p>
-        </div>
+<body>
+  <header>
+    <h1>devfinder</h1>
+    <div class="theme-toggle" id="themeToggle">
+      <span id="themeText">LIGHT</span>
+      <span id="themeIcon">☀️</span>
     </div>
+  </header>
 
-    <script src="index.js"></script>
+  <div class="search-bar">
+    <span>🔍</span>
+    <input type="text" id="searchInput" placeholder="Search GitHub username...">
+    <button onclick="searchUser()">Search</button>
+  </div>
+
+  <div class="profile-card" id="profileCard" style="display: none;">
+    <img id="profileImage" src="" alt="Profile Picture">
+    <div class="profile-info">
+      <h2 id="profileName"></h2>
+      <p class="username" id="profileUsername"></p>
+      <p class="join-date" id="joinDate"></p>
+      <p class="bio" id="profileBio"></p>
+      <div class="stats">
+        <div>
+          <p>Repos</p>
+          <p id="reposCount"></p>
+        </div>
+        <div>
+          <p>Followers</p>
+          <p id="followersCount"></p>
+        </div>
+        <div>
+          <p>Following</p>
+          <p id="followingCount"></p>
+        </div>
+      </div>
+      <div class="additional-info">
+        <div class="info-item" id="locationInfo">
+          <span>📍</span>
+          <p id="profileLocation"></p>
+        </div>
+        <div class="info-item" id="blogInfo">
+          <span>🔗</span>
+          <a id="profileBlog" href=""></a>
+        </div>
+        <div class="info-item" id="twitterInfo">
+          <span>🐦</span>
+          <p id="profileTwitter"></p>
+        </div>
+        <div class="info-item" id="companyInfo">
+          <span>🏢</span>
+          <p id="profileCompany"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="errorMessage" style="display: none; font-size: 14px; margin-top: 10px;"></div>
+
+  <script src="index.js"></script>
 </body>
 </html>
